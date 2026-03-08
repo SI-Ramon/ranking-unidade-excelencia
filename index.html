@@ -8,6 +8,7 @@
 <style>
 
 /* ===== BODY / BACKGROUND ===== */
+
 body{
   font-family: Arial, sans-serif;
   margin: 0;
@@ -17,17 +18,11 @@ body{
   background-image:
     linear-gradient(rgba(12,25,30,0.60), rgba(12,25,30,0.60)),
     url('https://raw.githubusercontent.com/SI-Ramon/ranking/main/ranking/img/unidades.png');
+
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-@media (max-width: 480px){
-  body{
-    background-attachment: scroll;
-    background-position: center top;
-  }
 }
 
 /* ===== layout ===== */
@@ -42,37 +37,26 @@ body{
 /* ===== header ===== */
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:8px;
 }
 
-h1.title {
-  font-size: 28px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  color: #fff;
+h1.title{
+  font-size:28px;
+  margin:0;
+  font-weight:700;
 }
 
 /* ===== emblema ===== */
 
-.club-emblem {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 8px;
-  border: 2px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.08);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-}
-
-.header.no-emblem {
-  justify-content: center;
+.club-emblem{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  border-radius:8px;
 }
 
 /* ===== podium ===== */
@@ -81,28 +65,25 @@ h1.title {
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:15px;
-  margin: 18px 0 40px;
+  margin:18px 0 40px;
   justify-items:center;
 }
 
 /* ===== cards ===== */
 
 .card{
-  position: relative;
-  overflow: visible;
-  background: rgba(255,255,255,.08);
-  padding: 100px 20px 20px;
-  border-radius: 15px;
-  text-align: center;
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  transition: transform .18s ease;
+  position:relative;
+  overflow:visible;
+  background:rgba(255,255,255,.08);
+  padding:75px 20px 20px;
+  border-radius:15px;
+  text-align:center;
+  min-height:240px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
 }
-
-.card:hover{ transform: translateY(-6px); }
 
 .gold { background: rgba(255,215,0,.34); }
 .silver { background: rgba(192,192,192,.28); }
@@ -111,17 +92,15 @@ h1.title {
 /* ===== avatar ===== */
 
 .avatar{
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92px;
-  height: 92px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(255,255,255,.35);
-  background: rgba(0,0,0,.12);
-  z-index: 2;
+  position:absolute;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.35);
 }
 
 .avatar-sm{
@@ -129,7 +108,6 @@ h1.title {
   height:34px;
   border-radius:50%;
   object-fit:cover;
-  border:1px solid rgba(255,255,255,.35);
 }
 
 /* ===== coroa ===== */
@@ -140,21 +118,20 @@ h1.title {
   left:50%;
   transform:translateX(-50%);
   font-size:32px;
-  z-index:3;
-  text-shadow:0 3px 8px rgba(0,0,0,.6);
 }
 
 /* ===== textos ===== */
 
 .card h3{
-  margin-top: 2px;
-  margin-bottom: 6px;
+  margin-top:-6px;
+  margin-bottom:4px;
+  font-size:18px;
 }
 
 .card strong{
   display:block;
   font-size:18px;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .card p{
@@ -185,45 +162,40 @@ th,td{
 /* ===== footer ===== */
 
 .page-footer{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(12,25,30,0.0), rgba(0,0,0,0.45));
-  padding: 12px 0;
-  text-align: center;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  background:linear-gradient(180deg, rgba(12,25,30,0.0), rgba(0,0,0,0.45));
+  padding:12px 0;
+  text-align:center;
 }
 
 /* ===== responsivo ===== */
 
 @media (max-width:900px){
-  .podium{grid-template-columns:repeat(3,1fr);}
-  .avatar{
-    width: 88px;
-    height: 88px;
-    top: 20px;
+  .podium{
+    grid-template-columns:repeat(3,1fr);
   }
 }
 
 @media (max-width:480px){
-  .avatar{
-    width: 76px;
-    height: 76px;
-    top: 24px;
-  }
 
-  .card h3{
-    margin-top: 0;
-    margin-bottom: 4px;
-  }
+.avatar{
+  width:76px;
+  height:76px;
+  top:20px;
+}
+
+.card h3{
+  margin-top:-4px;
+}
+
 }
 
 @media (max-width:320px){
-  .podium{grid-template-columns:repeat(1,1fr);}
-  .avatar{
-    width: 70px;
-    height: 70px;
-    top: 24px;
+  .podium{
+    grid-template-columns:repeat(1,1fr);
   }
 }
 
@@ -267,23 +239,19 @@ th,td{
 
 <script>
 
-const EMBLEM_URL = "https://raw.githubusercontent.com/SI-Ramon/ranking/main/ranking/img/GUARDIOES.png";
+const EMBLEM_URL="https://raw.githubusercontent.com/SI-Ramon/ranking/main/ranking/img/GUARDIOES.png";
 
-const SHEET_ID = "1XSBKPMg4nlzAJpACvZ5hCumqOyFPFIIRqV60gghP43E";
-const SHEET_NAME = "UNIDADES";
+const SHEET_ID="1XSBKPMg4nlzAJpACvZ5hCumqOyFPFIIRqV60gghP43E";
+const SHEET_NAME="UNIDADES";
 
-const query = encodeURIComponent("select A, B, C where A is not null order by B desc");
+const query=encodeURIComponent("select A,B,C where A is not null order by B desc");
 
-const url =
-`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(SHEET_NAME)}&tq=${query}`;
+const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tq=${query}`;
 
 function parseGViz(text){
-
 const start=text.indexOf("{");
 const end=text.lastIndexOf("}");
-
 return JSON.parse(text.substring(start,end+1));
-
 }
 
 function normalizeDriveImage(raw){
@@ -296,6 +264,7 @@ const m=u.match(/IMAGE\(\"(.*)\"\)/i);
 if(m)u=m[1];
 
 const id=u.match(/\/d\/([^\/]+)/);
+
 if(id)return`https://drive.google.com/uc?export=view&id=${id[1]}`;
 
 return u;
@@ -312,24 +281,8 @@ return img;
 
 }
 
-function loadEmblem(){
-
-const img=document.getElementById("clubEmblem");
-
-if(!EMBLEM_URL){
-img.style.display="none";
-return;
-}
-
-img.src=EMBLEM_URL;
-
-}
-
 function updateTime(){
-
-document.getElementById("updated").innerText=
-"Atualizado em: "+new Date().toLocaleString("pt-BR");
-
+document.getElementById("updated").innerText="Atualizado em: "+new Date().toLocaleString("pt-BR");
 }
 
 async function load(){
@@ -341,11 +294,9 @@ const data=parseGViz(text);
 const rows=(data.table.rows||[]).map(r=>{
 
 return{
-
 name:r.c?.[0]?.v||"",
 pts:r.c?.[1]?.v||0,
 photo:normalizeDriveImage(r.c?.[2]?.v||"")
-
 };
 
 }).filter(x=>x.name);
@@ -361,10 +312,13 @@ const div=document.createElement("div");
 div.className="card "+styles[i];
 
 if(i===0){
+
 const crown=document.createElement("div");
 crown.className="crown";
 crown.innerHTML="👑";
+
 div.appendChild(crown);
+
 }
 
 const img=makeImg(p.photo,"avatar");
@@ -426,9 +380,7 @@ updateTime();
 
 }
 
-loadEmblem();
 load();
-
 setInterval(load,60000);
 
 </script>
