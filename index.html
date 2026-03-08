@@ -112,7 +112,7 @@ h1.title {
 
 .avatar{
   position: absolute;
-  top: 8px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 92px;
@@ -136,7 +136,7 @@ h1.title {
 
 .crown{
   position:absolute;
-  top:-22px;
+  top:-12px;
   left:50%;
   transform:translateX(-50%);
   font-size:32px;
@@ -147,8 +147,8 @@ h1.title {
 /* ===== textos ===== */
 
 .card h3{
-  margin-top:10px;
-  margin-bottom:8px;
+  margin-top: 2px;
+  margin-bottom: 6px;
 }
 
 .card strong{
@@ -198,10 +198,33 @@ th,td{
 
 @media (max-width:900px){
   .podium{grid-template-columns:repeat(3,1fr);}
+  .avatar{
+    width: 88px;
+    height: 88px;
+    top: 20px;
+  }
+}
+
+@media (max-width:480px){
+  .avatar{
+    width: 76px;
+    height: 76px;
+    top: 24px;
+  }
+
+  .card h3{
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
 }
 
 @media (max-width:320px){
   .podium{grid-template-columns:repeat(1,1fr);}
+  .avatar{
+    width: 70px;
+    height: 70px;
+    top: 24px;
+  }
 }
 
 </style>
@@ -337,16 +360,11 @@ rows.slice(0,5).forEach((p,i)=>{
 const div=document.createElement("div");
 div.className="card "+styles[i];
 
-/* 👑 coroa */
-
 if(i===0){
-
 const crown=document.createElement("div");
 crown.className="crown";
 crown.innerHTML="👑";
-
 div.appendChild(crown);
-
 }
 
 const img=makeImg(p.photo,"avatar");
