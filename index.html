@@ -6,9 +6,7 @@
 <title>UNIDADE EXCELÊNCIA</title>
 
 <style>
-
 /* ===== BODY / BACKGROUND ===== */
-
 body{
   font-family: Arial, sans-serif;
   margin: 0;
@@ -18,15 +16,20 @@ body{
   background-image:
     linear-gradient(rgba(12,25,30,0.60), rgba(12,25,30,0.60)),
     url('https://raw.githubusercontent.com/SI-Ramon/ranking/main/ranking/img/unidades.png');
-
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-/* ===== layout ===== */
+@media (max-width: 480px){
+  body{
+    background-attachment: scroll;
+    background-position: center top;
+  }
+}
 
+/* ===== layout ===== */
 .wrap{
   max-width:1000px;
   margin:auto;
@@ -35,72 +38,87 @@ body{
 }
 
 /* ===== header ===== */
-
 .header {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
-h1.title{
-  font-size:28px;
-  margin:0;
-  font-weight:700;
+h1.title {
+  font-size: 28px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* ===== emblema ===== */
+.club-emblem {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  display: inline-block;
+}
 
-.club-emblem{
-  width:60px;
-  height:60px;
-  object-fit:contain;
-  border-radius:8px;
+.header.no-emblem {
+  justify-content: center;
 }
 
 /* ===== podium ===== */
-
 .podium{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:15px;
-  margin:18px 0 40px;
+  margin: 18px 0 40px;
   justify-items:center;
 }
 
 /* ===== cards ===== */
-
 .card{
-  position:relative;
-  overflow:visible;
-  background:rgba(255,255,255,.08);
-  padding:50px 20px 20px;
-  border-radius:15px;
-  text-align:center;
-  min-height:220px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-end;
+  position: relative;
+  overflow: visible;
+  background: rgba(255,255,255,.08);
+  padding: 50px 20px 20px;
+  border-radius: 15px;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  transition: transform .18s ease;
 }
+
+.card:hover{ transform: translateY(-6px); }
 
 .gold { background: rgba(255,215,0,.34); }
 .silver { background: rgba(192,192,192,.28); }
 .bronze { background: rgba(205,127,50,.28); }
 
 /* ===== avatar ===== */
-
 .avatar{
-  position:absolute;
-  top:14px;
-  left:50%;
-  transform:translateX(-50%);
-  width:92px;
-  height:92px;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid rgba(255,255,255,.35);
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,.12);
+  z-index: 2;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  display: block;
 }
 
 .avatar-sm{
@@ -108,38 +126,45 @@ h1.title{
   height:34px;
   border-radius:50%;
   object-fit:cover;
+  border:1px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,.15);
 }
 
 /* ===== coroa ===== */
-
 .crown{
   position:absolute;
   top:-16px;
   left:50%;
   transform:translateX(-50%);
   font-size:32px;
+  z-index:3;
+  pointer-events:none;
+  text-shadow:0 3px 8px rgba(0,0,0,.6);
 }
 
 /* ===== textos ===== */
-
 .card h3{
-  margin-top:-12px;
-  margin-bottom:2px;
+  margin-top: -12px;
+  margin-bottom: 2px;
   font-size:18px;
+  color:#fff;
 }
 
 .card strong{
   display:block;
   font-size:18px;
   margin-bottom:4px;
+  color:#fff;
 }
 
 .card p{
   margin:0;
+  font-size:16px;
+  color:#fff;
+  opacity:.95;
 }
 
 /* ===== tabela ===== */
-
 table{
   width:100%;
   border-collapse:collapse;
@@ -151,6 +176,11 @@ th,td{
   border-bottom:1px solid rgba(255,255,255,.12);
 }
 
+th{
+  text-align:left;
+  font-weight:600;
+}
+
 .right{text-align:right;}
 
 .rowflex{
@@ -159,230 +189,292 @@ th,td{
   gap:12px;
 }
 
-/* ===== footer ===== */
+.muted{
+  opacity:.75;
+  font-size:.9rem;
+  margin-top:10px;
+}
 
+/* ===== footer ===== */
 .page-footer{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  background:linear-gradient(180deg, rgba(12,25,30,0.0), rgba(0,0,0,0.45));
-  padding:12px 0;
-  text-align:center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(12,25,30,0.0), rgba(0,0,0,0.45));
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 0;
+  text-align: center;
+  color: #fff;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.page-footer .updated {
+  font-size: 0.95rem;
+  opacity: .95;
 }
 
 /* ===== responsivo ===== */
-
-@media (max-width:900px){
-  .podium{
-    grid-template-columns:repeat(3,1fr);
-  }
+@media (max-width: 900px){
+  .podium{ grid-template-columns: repeat(3, 1fr); gap:14px; }
+  .card{ min-height: 220px; padding-top: 50px; }
+  .avatar{ width: 88px; height:88px; top: 14px; }
+  .club-emblem{ width: 52px; height: 52px; }
 }
 
-@media (max-width:480px){
-
-.avatar{
-  width:76px;
-  height:76px;
-  top:14px;
+@media (max-width: 480px){
+  .podium{ grid-template-columns: repeat(3, 1fr); gap:10px; margin-bottom:30px; }
+  .card{ min-height: 210px; padding-top: 48px; border-radius: 18px; }
+  .avatar{ width: 76px; height:76px; top: 14px; }
+  .club-emblem{ width: 46px; height: 46px; }
+  .card h3{ font-size:16px; margin-top: -10px; margin-bottom: 2px; }
+  .card strong{ font-size:16px; margin-bottom: 4px; }
+  .card p{ font-size:14px; }
+  th, td{ padding: 8px; }
 }
 
-.card h3{
-  margin-top:-10px;
+@media (max-width: 320px){
+  .podium{ grid-template-columns: repeat(1, 1fr); }
+  .card{ min-height: 200px; padding-top: 45px; }
+  .avatar{ width:70px; height:70px; top: 14px; }
+  .club-emblem{ width: 40px; height: 40px; }
 }
-
-}
-
-@media (max-width:320px){
-  .podium{
-    grid-template-columns:repeat(1,1fr);
-  }
-}
-
 </style>
 </head>
 
 <body>
-
 <div class="wrap">
 
-<div id="headerWrap" class="header">
-<img id="clubEmblem" class="club-emblem" src="">
-<h1 class="title">UNIDADE EXCELÊNCIA</h1>
-</div>
+  <div id="headerWrap" class="header">
+    <img id="clubEmblem" class="club-emblem" src="" alt="Emblema do clube" />
+    <h1 class="title">UNIDADE EXCELÊNCIA</h1>
+  </div>
 
-<div class="podium" id="podium"></div>
+  <div class="podium" id="podium"></div>
 
-<h2>📋 Ranking Completo</h2>
+  <h2 style="margin-top:6px;">📋 Ranking Completo</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:48px">#</th>
+        <th>Unidade</th>
+        <th class="right" style="width:120px">Pontos</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
 
-<table>
-
-<thead>
-<tr>
-<th>#</th>
-<th>Unidades</th>
-<th class="right">Pontos</th>
-</tr>
-</thead>
-
-<tbody id="tbody"></tbody>
-
-</table>
-
-<div id="status"></div>
-
+  <div class="muted" id="status"></div>
 </div>
 
 <footer class="page-footer">
-<div id="updated">Atualizando...</div>
+  <div id="updated" class="updated">Atualizando...</div>
 </footer>
 
 <script>
+/* ============================
+  EMBLEM_URL
+============================ */
+const EMBLEM_URL = "https://raw.githubusercontent.com/SI-Ramon/ranking/main/ranking/img/GUARDIOES.png";
 
-const EMBLEM_URL="https://raw.githubusercontent.com/SI-Ramon/ranking/main/ranking/img/GUARDIOES.png";
-
-const SHEET_ID="1XSBKPMg4nlzAJpACvZ5hCumqOyFPFIIRqV60gghP43E";
-const SHEET_NAME="UNIDADES";
-
-const query=encodeURIComponent("select A,B,C where A is not null order by B desc");
-
-const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tq=${query}`;
+/* ===== planilha ===== */
+const SHEET_ID = "1XSBKPMg4nlzAJpACvZ5hCumqOyFPFIIRqV60gghP43E";
+const SHEET_NAME = "UNIDADES";
+const query = encodeURIComponent("select A, B, C where A is not null order by B desc");
+const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(SHEET_NAME)}&tq=${query}`;
 
 function parseGViz(text){
-const start=text.indexOf("{");
-const end=text.lastIndexOf("}");
-return JSON.parse(text.substring(start,end+1));
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start === -1 || end === -1) throw new Error("Resposta gviz inválida.");
+  return JSON.parse(text.substring(start, end + 1));
 }
 
+/* ===== normaliza links do Drive / aceita =IMAGE("...") e links comuns ===== */
 function normalizeDriveImage(raw){
+  if (!raw) return "";
+  let u = String(raw).trim();
 
-if(!raw)return"";
+  const mImg = u.match(/IMAGE\(\"(.*)\"\)/i);
+  if (mImg && mImg[1]) u = mImg[1].trim();
 
-let u=String(raw).trim();
+  const m1 = u.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (m1 && m1[1]) return `https://drive.google.com/uc?export=view&id=${m1[1]}`;
 
-const m=u.match(/IMAGE\(\"(.*)\"\)/i);
-if(m)u=m[1];
+  const m2 = u.match(/drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/);
+  if (m2 && m2[1]) return `https://drive.google.com/uc?export=view&id=${m2[1]}`;
 
-const id=u.match(/\/d\/([^\/]+)/);
+  const m3 = u.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (m3 && m3[1] && u.includes("drive.google.com")) {
+    return `https://drive.google.com/uc?export=view&id=${m3[1]}`;
+  }
 
-if(id)return`https://drive.google.com/uc?export=view&id=${id[1]}`;
-
-return u;
-
+  return u;
 }
 
-function makeImg(url,cls){
+function driveAlt(u){
+  const m = u.match(/uc\?export=view&id=([a-zA-Z0-9_-]+)/);
+  if (m && m[1]) return `https://drive.google.com/uc?export=download&id=${m[1]}`;
+  return u;
+}
 
-const img=document.createElement("img");
-img.className=cls;
-img.src=url||"";
+function bust(u){
+  if (!u) return u;
+  const sep = u.includes("?") ? "&" : "?";
+  return `${u}${sep}t=${Date.now()}`;
+}
 
-return img;
+function makeImg(photoUrl, cls, alt){
+  const img = document.createElement("img");
+  img.className = cls;
+  img.alt = alt || "";
+  img.referrerPolicy = "no-referrer";
+  img.crossOrigin = "anonymous";
 
+  const initial = photoUrl ? bust(photoUrl) : "";
+  img.src = initial || "";
+
+  img.onerror = () => {
+    if (photoUrl && photoUrl.includes("drive.google.com") && !img.dataset.triedAlt) {
+      img.dataset.triedAlt = "1";
+      img.src = bust(driveAlt(photoUrl));
+      return;
+    }
+    img.src = "";
+  };
+
+  return img;
+}
+
+/* ===== emblema ===== */
+function loadEmblem() {
+  const imgEl = document.getElementById("clubEmblem");
+  const header = document.getElementById("headerWrap");
+
+  if (!EMBLEM_URL || EMBLEM_URL.trim() === "") {
+    imgEl.style.display = "none";
+    header.classList.add("no-emblem");
+    return;
+  }
+
+  imgEl.src = EMBLEM_URL;
+  imgEl.onerror = () => {
+    imgEl.style.display = "none";
+    header.classList.add("no-emblem");
+  };
+  imgEl.onload = () => {
+    imgEl.style.display = "inline-block";
+    header.classList.remove("no-emblem");
+  };
 }
 
 function updateTime(){
-document.getElementById("updated").innerText="Atualizado em: "+new Date().toLocaleString("pt-BR");
+  const el = document.getElementById("updated");
+  if (!el) return;
+  el.innerText = "Atualizado em: " + new Date().toLocaleString("pt-BR");
 }
 
+/* ===== carrega dados e renderiza ===== */
 async function load(){
+  const status = document.getElementById("status");
+  status.textContent = "";
 
-const res=await fetch(url);
-const text=await res.text();
-const data=parseGViz(text);
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    const text = await res.text();
+    const data = parseGViz(text);
 
-const rows=(data.table.rows||[]).map(r=>{
+    const rows = (data.table.rows || []).map(r => {
+      const name = r.c?.[0]?.v || "";
+      const pts = r.c?.[1]?.v || 0;
+      const photoRaw = r.c?.[2]?.v || "";
+      const photoFinal = normalizeDriveImage(photoRaw);
+      return { name, pts, photoRaw, photoFinal };
+    }).filter(x => x.name);
 
-return{
-name:r.c?.[0]?.v||"",
-pts:r.c?.[1]?.v||0,
-photo:normalizeDriveImage(r.c?.[2]?.v||"")
-};
+    /* PODIUM */
+    const podium = document.getElementById("podium");
+    podium.innerHTML = "";
+    const styles = ["gold","silver","bronze","",""];
 
-}).filter(x=>x.name);
+    rows.slice(0,5).forEach((p,i)=>{
+      const div = document.createElement("div");
+      div.className = "card " + styles[i];
 
-const podium=document.getElementById("podium");
-podium.innerHTML="";
+      if(i === 0){
+        const crown = document.createElement("div");
+        crown.className = "crown";
+        crown.innerHTML = "👑";
+        div.appendChild(crown);
+      }
 
-const styles=["gold","silver","bronze","",""];
+      const img = makeImg(p.photoFinal, "avatar", `Foto de ${p.name}`);
+      div.appendChild(img);
 
-rows.slice(0,5).forEach((p,i)=>{
+      const h3 = document.createElement("h3");
+      h3.textContent = `${i+1}º Lugar`;
+      div.appendChild(h3);
 
-const div=document.createElement("div");
-div.className="card "+styles[i];
+      const strong = document.createElement("strong");
+      strong.textContent = p.name;
+      div.appendChild(strong);
 
-if(i===0){
+      const pEl = document.createElement("p");
+      pEl.textContent = `${p.pts} pontos`;
+      div.appendChild(pEl);
 
-const crown=document.createElement("div");
-crown.className="crown";
-crown.innerHTML="👑";
+      podium.appendChild(div);
+    });
 
-div.appendChild(crown);
+    /* TABELA */
+    const tbody = document.getElementById("tbody");
+    tbody.innerHTML = "";
 
+    rows.forEach((p,i)=>{
+      const tr = document.createElement("tr");
+
+      const tdPos = document.createElement("td");
+      tdPos.textContent = i+1;
+
+      const tdName = document.createElement("td");
+      const wrap = document.createElement("div");
+      wrap.className = "rowflex";
+
+      const photo = makeImg(p.photoFinal, "avatar-sm", `Foto de ${p.name}`);
+      wrap.appendChild(photo);
+
+      const span = document.createElement("span");
+      span.textContent = p.name;
+      wrap.appendChild(span);
+
+      tdName.appendChild(wrap);
+
+      const tdPts = document.createElement("td");
+      tdPts.className = "right";
+      tdPts.textContent = p.pts;
+
+      tr.appendChild(tdPos);
+      tr.appendChild(tdName);
+      tr.appendChild(tdPts);
+
+      tbody.appendChild(tr);
+    });
+
+    updateTime();
+  } catch (err) {
+    status.textContent = "Erro ao carregar dados: " + (err?.message || err);
+    console.error(err);
+  }
 }
 
-const img=makeImg(p.photo,"avatar");
-div.appendChild(img);
-
-const h3=document.createElement("h3");
-h3.textContent=`${i+1}º Lugar`;
-div.appendChild(h3);
-
-const strong=document.createElement("strong");
-strong.textContent=p.name;
-div.appendChild(strong);
-
-const pEl=document.createElement("p");
-pEl.textContent=`${p.pts} pontos`;
-div.appendChild(pEl);
-
-podium.appendChild(div);
-
+/* ===== init ===== */
+loadEmblem();
+load().catch(err => {
+  document.getElementById("status").textContent = "Erro ao carregar: " + (err?.message || err);
+  console.error(err);
 });
-
-const tbody=document.getElementById("tbody");
-tbody.innerHTML="";
-
-rows.forEach((p,i)=>{
-
-const tr=document.createElement("tr");
-
-const td1=document.createElement("td");
-td1.textContent=i+1;
-
-const td2=document.createElement("td");
-
-const wrap=document.createElement("div");
-wrap.className="rowflex";
-
-const img=makeImg(p.photo,"avatar-sm");
-wrap.appendChild(img);
-
-const span=document.createElement("span");
-span.textContent=p.name;
-wrap.appendChild(span);
-
-td2.appendChild(wrap);
-
-const td3=document.createElement("td");
-td3.className="right";
-td3.textContent=p.pts;
-
-tr.appendChild(td1);
-tr.appendChild(td2);
-tr.appendChild(td3);
-
-tbody.appendChild(tr);
-
-});
-
-updateTime();
-
-}
-
-load();
-setInterval(load,60000);
-
+setInterval(() => load().catch(console.error), 60000);
 </script>
 
 </body>
